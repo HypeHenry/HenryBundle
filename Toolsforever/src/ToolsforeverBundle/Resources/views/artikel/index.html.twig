@@ -1,0 +1,51 @@
+{% extends '@Toolsforever/base.html.twig' %}
+
+{% block body %}
+    <h1>Artikels Voorraad</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Productnaam</th>
+                <th>Omschrijving</th>
+                <th>Prijs</th>
+                <th>Image</th>
+                <th>Klant</th>
+                <th>Locatie</th>
+                <th>Fabriek</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artikel in artikels %}
+            <tr>
+                <td><a href="{{ path('artikel_show', { 'id': artikel.id }) }}">{{ artikel.id }}</a></td>
+                <td>{{ artikel.productnaam }}</td>
+                <td>{{ artikel.omschrijving }}</td>
+                <td>{{ artikel.prijs }}</td>
+                <td> <img src="{{ logodir }}/{{ artikel.brochure }}" class="img-rounded" alt="{{ artikel.brochure }}" width="95"></td>
+                <td>{{ artikel.klant }}</td>
+                <td>{{ artikel.locatie }}</td>
+                <td>{{ artikel.fabriek }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('artikel_show', { 'id': artikel.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('artikel_edit', { 'id': artikel.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artikel_new') }}">Create a new artikel</a>
+        </li>
+    </ul>
+{% endblock %}

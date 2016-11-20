@@ -1,0 +1,30 @@
+{% extends "@Toolsforever/base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+    <div class="col-md-4">
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            <h2 class="form-signin-heading">Inloggen: </h2>
+            <hr>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <label class="sr-only" for="username">{{ 'security.login.username'|trans }}</label>
+            <input class="form-control"  type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Gebruikersnaam of Wachtwoord" />
+            <label class="sr-only" for="password">{{ 'security.login.password'|trans }}</label>
+            <input class="form-control" type="password" id="password" name="_password" required="required" placeholder="Wachtwoord" />
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                </label>
+            </div>
+            <input class="btn btn-primary" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+        </form>
+        <br>
+        <a href="{{ path('fos_user_resetting_request') }}" class="btn btn-danger">Wachtwoord vergeten ?</a>
+    </div>
+    <div class="col-md-2"></div>
+
+
+
+{% endblock %}

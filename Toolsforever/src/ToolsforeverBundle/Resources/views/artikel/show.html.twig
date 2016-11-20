@@ -1,0 +1,57 @@
+{% extends '@Toolsforever/base.html.twig' %}
+
+{% block body %}
+    <h1>Artikel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ artikel.id }}</td>
+            </tr>
+            <tr>
+                <th>Productnaam</th>
+                <td>{{ artikel.productnaam }}</td>
+            </tr>
+            <tr>
+                <th>Omschrijving</th>
+                <td>{{ artikel.omschrijving }}</td>
+            </tr>
+            <tr>
+                <th>Prijs</th>
+                <td>{{ artikel.prijs }}</td>
+            </tr>
+
+            <tr>
+                <th>Klantid</th>
+                <td>{{ artikel.klantid }}</td>
+            </tr>
+            <tr>
+                <th>Locatieid</th>
+                <td>{{ artikel.locatieid }}</td>
+            </tr>
+            <tr>
+                <th>Fabriekid</th>
+                <td>{{ artikel.fabriekid }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td> <img src="{{ logodir }}/{{ artikel.brochure }}" class="img-rounded" alt="{{ artikel.brochure }}" width="400"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artikel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('artikel_edit', { 'id': artikel.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

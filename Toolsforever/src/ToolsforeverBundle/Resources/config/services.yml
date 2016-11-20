@@ -1,0 +1,4 @@
+services:
+#    toolsforever.example:
+#        class: ToolsforeverBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

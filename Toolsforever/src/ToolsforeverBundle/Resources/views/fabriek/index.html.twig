@@ -1,0 +1,39 @@
+{% extends '@Toolsforever/base.html.twig' %}
+
+{% block body %}
+    <h1>Fabrieks list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fabriek</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fabriek in fabrieks %}
+            <tr>
+                <td><a href="{{ path('fabriek_show', { 'id': fabriek.id }) }}">{{ fabriek.id }}</a></td>
+                <td>{{ fabriek.fabriek }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fabriek_show', { 'id': fabriek.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fabriek_edit', { 'id': fabriek.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fabriek_new') }}">Create a new fabriek</a>
+        </li>
+    </ul>
+{% endblock %}

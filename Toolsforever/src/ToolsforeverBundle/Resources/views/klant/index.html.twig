@@ -1,0 +1,45 @@
+{% extends '@Toolsforever/base.html.twig' %}
+
+{% block body %}
+    <h1>Klants list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Naam</th>
+                <th>Adres</th>
+                <th>Postcode</th>
+                <th>Plaats</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for klant in klants %}
+            <tr>
+                <td><a href="{{ path('klant_show', { 'id': klant.id }) }}">{{ klant.id }}</a></td>
+                <td>{{ klant.naam }}</td>
+                <td>{{ klant.adres }}</td>
+                <td>{{ klant.postcode }}</td>
+                <td>{{ klant.plaats }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('klant_show', { 'id': klant.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('klant_edit', { 'id': klant.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('klant_new') }}">Create a new klant</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends '@Toolsforever/base.html.twig' %}
+
+{% block body %}
+    <h1>Locatie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ locatie.id }}</td>
+            </tr>
+            <tr>
+                <th>Locatie</th>
+                <td>{{ locatie.locatie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('locatie_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('locatie_edit', { 'id': locatie.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

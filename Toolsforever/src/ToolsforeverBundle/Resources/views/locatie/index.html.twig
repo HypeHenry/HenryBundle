@@ -1,0 +1,39 @@
+{% extends '@Toolsforever/base.html.twig' %}
+
+{% block body %}
+    <h1>Locaties list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Locatie</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for locatie in locaties %}
+            <tr>
+                <td><a href="{{ path('locatie_show', { 'id': locatie.id }) }}">{{ locatie.id }}</a></td>
+                <td>{{ locatie.locatie }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('locatie_show', { 'id': locatie.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('locatie_edit', { 'id': locatie.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('locatie_new') }}">Create a new locatie</a>
+        </li>
+    </ul>
+{% endblock %}
